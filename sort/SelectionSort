@@ -1,0 +1,32 @@
+
+public  class SelectionSort{
+     /**
+      * @author Salernoaless
+     * o(n^2) complexity, suboptimal sorting algorithm
+     * based on the research of the current minimum and the 
+     * creation of a sorted sub-array until the elements finish
+     */
+    public static void sort(int[] list,int size){
+        /*
+
+        Sorting is an operation made on a sequence featuring and extrinsic order
+        criterion. In this trivial case the numerical values of integers stored inside
+        this array is used to sort. In a general case one should separate the criterion
+        from the sorting technique using polymorphism.
+         */
+        for(int i = 0; i < size;i++){
+            int index_minimum = i;
+            //minmum individuation loop
+            for(int j = i; j < size-1;j++){
+                if(list[index_minimum] > list[j+1]){
+                    index_minimum = j+1;
+                }
+            }
+
+            //swap
+            int support = list[i];
+            list[i] = list[index_minimum];
+            list[index_minimum] = support;
+        }
+    }
+}
