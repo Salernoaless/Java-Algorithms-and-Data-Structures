@@ -1,0 +1,29 @@
+
+
+/**
+ * @author Salernoaless
+ * O(logn) search algorithm
+ * 
+ * it is quite fast and elegant but it requires an already sorted algorithm
+ * I used a recursive approach
+ * it returns -1 if target is not found
+ */
+public class BinarySearch{
+    static int search(int[] list,int start, int end, int target){
+        if(start > end){
+            return -1;
+        }
+        
+        int half = (end+start)/2;
+        if(list[half] == target){     
+            return half;           
+        } else if( target > list[half]){
+            return search(list,half+1,end,target);
+                         
+        } else if(target < list[half]){       
+            return search(list,start,half-1,target);                           
+        }
+
+        return -1;
+    }
+}
